@@ -2,7 +2,7 @@
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import FoodItemStatsRow from './Partials/FoodItemStatsRow.vue';
 import FoodItemHeader from './Partials/FoodItemHeader.vue';
-import { Head } from '@inertiajs/vue3';
+import { Head, Link } from '@inertiajs/vue3';
 
 defineProps(['food'])
 
@@ -15,6 +15,8 @@ defineProps(['food'])
  
     <AuthenticatedLayout>
         <div class="max-w-xl mx-auto p-4 sm:p-6 lg:p-8">
+
+            <Link href="/food">Back</Link>
 
             <header>
                 <FoodItemHeader
