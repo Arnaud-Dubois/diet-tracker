@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Food;
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Request;
 use Inertia\Inertia;
 use Inertia\Response;
 
@@ -14,16 +14,12 @@ class FoodController extends Controller
      */
     public function index(): Response
     {
-        $foods = Food::paginate(1)->through(function ($food) {
-            return [
-                'id' => $food->id,
-                'name' => $food->name,
-                'diet' => $food->diet
-            ];
-        });
-
         return Inertia::render('Food/Index', [
-            'foods' => $foods
+            'foods' => Food::query()
+                ->when(Request::input('search'), function($query, $search) {
+                    $query->where('name','LIKE','%'.$search.'%');
+                })->paginate(2)
+                ->withQueryString(),
         ]);
     }
 
