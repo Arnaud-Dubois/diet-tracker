@@ -4,15 +4,21 @@ namespace App\Http\Controllers;
 
 use App\Models\Food;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
+use Inertia\Response;
 
 class FoodController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(): Response
     {
-        //
+        $foods = Food::all();
+
+        return Inertia::render('Food/Index', [
+            'foods' => $foods
+        ]);
     }
 
     /**
@@ -34,9 +40,14 @@ class FoodController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Food $food)
+    public function show($id)
     {
-        //
+
+        $food = Food::findOrFail($id);
+
+        return Inertia::render('Food/Item', [
+            'food' => $food
+        ]);
     }
 
     /**
