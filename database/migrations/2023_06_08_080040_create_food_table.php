@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('food', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->integer('calories');
+            $table->float('proteines');
+            $table->float('glucides');
+            $table->float('lipides');
             $table->timestamps();
         });
     }
