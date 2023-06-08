@@ -14,7 +14,13 @@ class FoodController extends Controller
      */
     public function index(): Response
     {
-        $foods = Food::all();
+        $foods = Food::paginate(1)->through(function ($food) {
+            return [
+                'id' => $food->id,
+                'name' => $food->name,
+                'diet' => $food->diet
+            ];
+        });
 
         return Inertia::render('Food/Index', [
             'foods' => $foods
