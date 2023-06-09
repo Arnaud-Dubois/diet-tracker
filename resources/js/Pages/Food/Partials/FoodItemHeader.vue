@@ -1,4 +1,6 @@
 <script setup lang="js">
+import AppleIcon from "@/Components/icons/AppleIcon.vue"
+
 defineProps({
     title: {
         type: String,
@@ -7,7 +9,6 @@ defineProps({
     diet: {
         type: Array,
         required: false,
-        default: ['Vegetarian', 'Vegan', 'Paleo', 'Keto']
     },
     src: {
         type: String,
@@ -20,11 +21,16 @@ defineProps({
     <div class="flex gap-4">
         <div class="food-list-img-container">
             <img v-if="src" :src="src" :alt="title">
-            <span v-else>No image</span>
+            <AppleIcon v-else />
         </div>
         <div>
             <h3 class="food-list-item-title">{{ title }}</h3>
-            <div class="food-list-item-diet">{{ diet }}*</div>
+            <div class="food-list-item-diet">
+                <i>
+                    <span v-if="diet">{{ diet }}</span>
+                    <span v-else>No diet</span>
+                </i>
+            </div>
         </div>
     </div>
 </template>
@@ -35,7 +41,10 @@ defineProps({
     height: 80px;
     background-color: var(--light-outline-color);
     color: gray;
-    border-radius: 3px;
+    border-radius: 6px;
+    display: grid;
+    justify-content: center;
+    align-content: center;
 }
 
 .food-list-item-title {

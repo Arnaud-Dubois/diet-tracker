@@ -7,3 +7,10 @@
     --light-outline-color: #D9D9D9;
     --light-main-color: #69CC84;
 }
+
+
+h4 {
+    color: var(--main-color);
+    font-size: large;
+    margin: .5rem 0;
+}

@@ -31,8 +31,8 @@ watch(search, value => {
             <TheSearchBar></TheSearchBar>
 
             <div class="p-4">
-                <label for="search">Search</label>
-                <input id="search" type="text" v-model="search" class="ml-2 px-2 py-1 text-sm rounded border">
+                <label class="text-sm text-green-500" for="search">Search</label>
+                <input id="search" type="text" v-model="search" class="px-2 py-1 w-full text-sm rounded border border-green-500">
             </div>
 
             <FoodList :list="$page['props']['foods']['data']"></FoodList>

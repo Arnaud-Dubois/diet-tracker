@@ -13,8 +13,7 @@ defineProps({
     },
     diet: {
         type: Array,
-        required: false,
-        default: ['Vegetarian', 'Vegan', 'Paleo', 'Keto']
+        required: false
     },
     src: {
         type: String,
@@ -38,12 +37,13 @@ defineProps({
 <style scoped>
 
 .food-list-item {
-    padding: 1rem 0;
+    padding: 1rem;
     border-bottom: 1px solid var(--light-outline-color);
+    transition: background-color .1s ease-in-out;
 }
 
 .food-list-item:hover {
-    background-color: var(--light-outline-color);
+    background-color: #ececec;
 }
 
 </style>

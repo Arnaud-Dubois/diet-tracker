@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Request;
 use Inertia\Inertia;
 use Inertia\Response;
 
+const PAGINATION_NUMBER = 3;
+
 class FoodController extends Controller
 {
     /**
@@ -14,11 +16,12 @@ class FoodController extends Controller
      */
     public function index(): Response
     {
+        
         return Inertia::render('Food/Index', [
             'foods' => Food::query()
                 ->when(Request::input('search'), function($query, $search) {
                     $query->where('name','LIKE','%'.$search.'%');
-                })->paginate(2)
+                })->paginate(PAGINATION_NUMBER)
                 ->withQueryString(),
         ]);
     }
@@ -44,7 +47,6 @@ class FoodController extends Controller
      */
     public function show($id)
     {
-
         $food = Food::findOrFail($id);
 
         return Inertia::render('Food/Item', [
