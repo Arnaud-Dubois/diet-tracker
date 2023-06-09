@@ -4,10 +4,10 @@ import TheSearchBar from '@/Components/TheSearchBar.vue';
 import ThePaginationBar from '@/Components/ThePaginationBar.vue';
 import FoodList from './Partials/FoodList.vue';
 import { Head } from '@inertiajs/vue3';
-import { Inertia } from "@inertiajs/inertia";
 import { ref } from "vue";
 import PrimaryButton from '@/Components/PrimaryButton.vue';
 import MagnifierIcon from '@/Components/icons/MagnifierIcon.vue';
+import { router } from '@inertiajs/vue3';
 
 let search = ref('');
 
@@ -18,11 +18,11 @@ let search = ref('');
  * 
  */
 function searching() {
-    Inertia.get(
+    router.get(
         "/food",
         { search: search.value },
         {
-            preserveState: false
+            preserveState: true
         }
     );
 }
