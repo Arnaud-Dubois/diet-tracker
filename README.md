@@ -27,6 +27,7 @@ The application is created with <a href="https://tailwindcss.com/">Tailwind</a> 
 Since there is no form yet to add new items to the db. The better approach is to use tinker to add new elements.
 
 ## Tinker commands to add new item
+<code>
 $food = new App\Models\Food;
 $food->name = 'Chocolat';
 $food->calories = 36;
@@ -35,9 +36,10 @@ $food->glucides = 22.1;
 $food->lipides = 0.1;
 $food->diet = ['Vegan','Keto'];
 $food->save();
-
+</code>
 
 ## Todo
+- Add a seeder or a form to add new items
 - Add image to FoodModel
 - Add diet enum to FoodModel
 - Add info longtext to FoodModel
