@@ -27,7 +27,9 @@ defineProps({
             <h3 class="food-list-item-title">{{ title }}</h3>
             <div class="food-list-item-diet">
                 <i>
-                    <span v-if="diet">{{ diet }}</span>
+                    <span v-if="diet">
+                        <span :key="item" v-for="item in diet" class="ml-1 p-2 bg-green-100">{{ item }}</span>
+                    </span>
                     <span v-else>No diet</span>
                 </i>
             </div>

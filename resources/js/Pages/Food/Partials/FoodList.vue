@@ -6,6 +6,7 @@
                 v-for="food in list"
                 :title="food.name"
                 :foodId="food.id"
+                :diet="food.diet"
             />
         </ul>
     </div>

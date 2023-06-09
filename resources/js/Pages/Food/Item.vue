@@ -30,6 +30,7 @@ defineProps(['food'])
             <header>
                 <FoodItemHeader
                     :title="food.name"
+                    :diet="food.diet"
                 />
             </header>
             <div>
