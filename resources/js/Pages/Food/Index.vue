@@ -5,23 +5,30 @@ import ThePaginationBar from '@/Components/ThePaginationBar.vue';
 import FoodList from './Partials/FoodList.vue';
 import { Head } from '@inertiajs/vue3';
 import { Inertia } from "@inertiajs/inertia";
-import { watch, ref } from "vue";
+import { ref } from "vue";
+import PrimaryButton from '@/Components/PrimaryButton.vue';
+import MagnifierIcon from '@/Components/icons/MagnifierIcon.vue';
 
-/* TODO: Should get a list of the search value, but is not working correctly right now. */
 let search = ref('');
-watch(search, value => {
+
+/**
+ * 
+ * Will replace the current page with the search value.
+ * Use the Inertia Client to make a get request.
+ * 
+ */
+function searching() {
     Inertia.get(
         "/food",
-        { search: value },
+        { search: search.value },
         {
             preserveState: false
         }
     );
-});
+}
 
 </script>
 
-<!-- NOTE: $page['props'] comes from Inertia and FoodController -->
 
 <template>
     <Head title="Food list" />
@@ -30,10 +37,18 @@ watch(search, value => {
         <div class="max-w-xl mx-auto p-4 sm:p-6 lg:p-8">
             <TheSearchBar></TheSearchBar>
 
-            <div class="p-4">
-                <label class="text-sm text-green-500" for="search">Search</label>
-                <input id="search" type="text" v-model="search" class="px-2 py-1 w-full text-sm rounded border border-green-500">
-            </div>
+            <div class="flex gap-2 p-4">
+                <input
+                    id="search"
+                    type="text"
+                    placeholder="apple, banana, strawbery"
+                    v-model="search"
+                    class="px-2 py-1 w-full text-sm rounded border border-green-500"
+                >
+                <PrimaryButton @click="searching" color="green" weight="800">
+                    <MagnifierIcon class="mr-1"/> Search
+                </PrimaryButton>
+            </div>            
 
             <FoodList :list="$page['props']['foods']['data']"></FoodList>
             <ThePaginationBar :links="$page['props']['foods']['links']"></ThePaginationBar>

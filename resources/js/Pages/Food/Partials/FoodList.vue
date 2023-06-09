@@ -1,5 +1,5 @@
  <template>
-    <div>
+    <div v-if="list.length > 0" class="food-list">
         <ul>
             <FoodListItem
                 :key="food.id"
@@ -9,6 +9,7 @@
             />
         </ul>
     </div>
+    <div v-else class="text-center italic text-gray-400 my-8">No items</div>
 </template>
 
 <script setup lang="js">
