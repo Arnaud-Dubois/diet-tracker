@@ -45,7 +45,7 @@ function searching() {
                     v-model="search"
                     class="px-2 py-1 w-full text-sm rounded border border-green-500"
                 >
-                <PrimaryButton @click="searching" color="green" weight="800">
+                <PrimaryButton @click="searching">
                     <MagnifierIcon class="mr-1"/> Search
                 </PrimaryButton>
             </div>            
