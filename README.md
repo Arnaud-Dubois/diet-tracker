@@ -26,6 +26,9 @@ The application is created with <a href="https://tailwindcss.com/">Tailwind</a> 
 ## Populating the database
 Since there is no form yet to add new items to the db. The better approach is to use tinker to add new elements.
 
+Seed the database :
+`php artisan db:seed --class=FoodSeeder`
+
 ## Tinker commands to add new item
 <code>
 $food = new App\Models\Food;
