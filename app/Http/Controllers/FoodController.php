@@ -22,6 +22,7 @@ class FoodController extends Controller
                 ->when(Request::input('search'), function($query, $search) {
                     $query->where('name','LIKE','%'.$search.'%');
                 })->paginate(PAGINATION_NUMBER)
+                ->onEachSide(1)
                 ->withQueryString(),
         ]);
     }

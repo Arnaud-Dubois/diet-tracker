@@ -10,7 +10,7 @@
 
                 <Link
                     v-else
-                    class="mr-1 mb-1 px-4 py-3 text-sm leading-4 border rounded hover:bg-white focus:border-primary focus:text-primary"
+                    class="mr-1 mb-1 px-2 py-3 text-sm leading-1 border rounded hover:bg-white focus:border-primary focus:text-primary"
                     :class="{ 'bg-white': link.active }"
                     :href="link.url"
                     v-html="link.label"
