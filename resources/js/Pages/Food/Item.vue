@@ -38,10 +38,10 @@ defineProps(['food'])
                 <div class="mt-8">
                     <h4>Statistiques</h4>
                     <ul>
-                        <FoodItemStatsRow title="calories" :value="food.calories" />
-                        <FoodItemStatsRow title="proteines" :value="food.proteines" />
-                        <FoodItemStatsRow title="glucides" :value="food.glucides" />
-                        <FoodItemStatsRow title="lipides" :value="food.lipides" />
+                        <FoodItemStatsRow title="calories" :value="food.calories" unit="kcal" />
+                        <FoodItemStatsRow title="proteines" :value="food.proteines" unit="g" />
+                        <FoodItemStatsRow title="glucides" :value="food.glucides" unit="g" />
+                        <FoodItemStatsRow title="lipides" :value="food.lipides" unit="g"/>
                     </ul>
                 </div>
                 <div class="mt-8">

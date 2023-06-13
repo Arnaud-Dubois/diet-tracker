@@ -9,6 +9,10 @@ defineProps({
     value: {
         type: Number,
         required: true
+    },
+    unit: {
+        type: String,
+        required: false
     }
 })
 
@@ -18,7 +22,7 @@ defineProps({
     <li class="food-item-stats-row">
         <div><OrganicFoodIcon/></div>
         <div class="food-item-stats-row-title text-gray-500">{{ title }}</div>
-        <div class="font-bold">{{ value }} kcal*</div>
+        <div class="font-bold">{{ value }} {{ unit }}</div>
     </li>
 </template>
 
