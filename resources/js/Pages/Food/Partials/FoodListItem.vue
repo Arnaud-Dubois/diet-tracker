@@ -23,7 +23,7 @@ defineProps({
 </script>
 
 <template>
-    <li class="food-list-item">
+    <li class="food-list-item p-2 border-b-2 transition ease-in-out duration-100 hover:bg-stone-200">
         <Link :href="route('food.show', { id: foodId })">
             <FoodItemHeader
                 :src="src"
@@ -33,17 +33,3 @@ defineProps({
         </Link>
     </li>
 </template>
-
-<style scoped>
-
-.food-list-item {
-    padding: 1rem;
-    border-bottom: 1px solid var(--light-outline-color);
-    transition: background-color .1s ease-in-out;
-}
-
-.food-list-item:hover {
-    background-color: #ececec;
-}
-
-</style>

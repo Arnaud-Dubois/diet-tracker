@@ -19,25 +19,9 @@ defineProps({
 </script>
 
 <template>
-    <li class="food-item-stats-row">
+    <li class="food-item-stats-row flex space-between bg-white p-3 mb-1">
         <div><OrganicFoodIcon/></div>
-        <div class="food-item-stats-row-title text-gray-500">{{ title }}</div>
+        <div class="food-item-stats-row-title text-gray-500 mr-auto pl-2 capitalize">{{ title }}</div>
         <div class="font-bold">{{ value }} {{ unit }}</div>
     </li>
 </template>
-
-<style scoped>
-.food-item-stats-row {
-    display: flex;
-    justify-content: space-between;
-    background-color: #FAFAFA;
-    padding: 0.5rem;
-    margin-bottom: 2px;
-}
-
-.food-item-stats-row-title {
-    margin-right: auto;
-    padding-left: .5rem;
-    text-transform: capitalize;
-}
-</style>

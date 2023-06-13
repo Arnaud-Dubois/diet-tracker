@@ -1,5 +1,5 @@
 <template>
-    <div v-if="links.length > 3" class="the-pagination-bar">
+    <div v-if="links.length > 3" class="the-pagination-bar flex content-center">
         <div class="flex flex-wrap mt-8">
             <template v-for="(link, key) in links" :key="key">
                 <div
@@ -32,10 +32,3 @@ export default defineComponent({
     },
 });
 </script>
-
-<style scoped>
-.the-pagination-bar {
-    display: flex;
-    justify-content: center;
-}
-</style>

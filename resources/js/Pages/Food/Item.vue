@@ -36,7 +36,7 @@ defineProps(['food'])
             </header>
             <div>
                 <div class="mt-8">
-                    <h4>Statistiques</h4>
+                    <h4 class="text-green-500 font-semibold text-2xl my-2">Statistiques</h4>
                     <ul>
                         <FoodItemStatsRow title="calories" :value="food.calories" unit="kcal" />
                         <FoodItemStatsRow title="proteines" :value="food.proteines" unit="g" />
@@ -45,7 +45,7 @@ defineProps(['food'])
                     </ul>
                 </div>
                 <div class="mt-8">
-                    <h4>Informations</h4>
+                    <h4 class="text-green-500 font-semibold text-2xl my-2">Informations</h4>
                     <p class="text-gray-500 italic">
                         <span v-if="food.description">{{ food.description }}</span>
                         <span v-else>No description for this food</span>
