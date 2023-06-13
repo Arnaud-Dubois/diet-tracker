@@ -30,6 +30,7 @@ defineProps(['food'])
             <header>
                 <FoodItemHeader
                     :title="food.name"
+                    :src="food.image"
                     :diet="food.diet"
                 />
             </header>
@@ -45,7 +46,10 @@ defineProps(['food'])
                 </div>
                 <div class="mt-8">
                     <h4>Informations</h4>
-                    <p class="text-gray-500 italic">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt aliquid sunt odit architecto soluta nam id, ullam voluptatum provident possimus a nihil, repellat facilis? Deserunt excepturi temporibus mollitia doloribus omnis?</p>
+                    <p class="text-gray-500 italic">
+                        <span v-if="food.description">{{ food.description }}</span>
+                        <span v-else>No description for this food</span>
+                    </p>
                 </div>
                 
             </div>

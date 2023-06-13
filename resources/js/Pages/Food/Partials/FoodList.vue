@@ -7,6 +7,7 @@
                 :title="food.name"
                 :foodId="food.id"
                 :diet="food.diet"
+                :src="food.image"
             />
         </ul>
     </div>

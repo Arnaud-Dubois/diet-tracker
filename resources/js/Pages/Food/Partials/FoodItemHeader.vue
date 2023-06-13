@@ -44,6 +44,7 @@ defineProps({
     background-color: var(--light-outline-color);
     color: gray;
     border-radius: 6px;
+    overflow: hidden;
     display: grid;
     justify-content: center;
     align-content: center;

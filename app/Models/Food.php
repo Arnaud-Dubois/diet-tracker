@@ -9,6 +9,17 @@ class Food extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'name',
+        'calories',
+        'proteines',
+        'glucides',
+        'lipides',
+        'diet',
+        'image',
+        'description'
+    ];
+
     /**
      * The attributes that should be cast.
      *
