@@ -19,12 +19,14 @@ class FoodFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => fake()->name(),
-            'calories' => 36,
-            'proteines' => 1.8,
-            'glucides' => 22.1,
-            'lipides' => 0.1,
-            'diet' => ['Vegan','Keto']
+            'name' => fake()->randomElement(['apple', 'banana', 'peach', 'strawbery', 'pineapple']),
+            'calories' => fake()->randomDigit(),
+            'proteines' => fake()->randomFloat(1, 20, 30),
+            'glucides' => fake()->randomFloat(1, 20, 30),
+            'lipides' => fake()->randomFloat(1, 20, 30),
+            'diet' => fake()->randomElements(['vegetarian', 'vegan', 'gluten_free', 'paleo', 'keto'], 3),
+            'image' => 'https://loremflickr.com/240/240/fruit?random=3',
+            'description' => fake()->paragraph(),
         ];
     }
 }
