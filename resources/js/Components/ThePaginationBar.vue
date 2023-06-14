@@ -14,6 +14,7 @@
                     :class="{ 'bg-white': link.active }"
                     :href="link.url"
                     v-html="link.label"
+                    preserve-state
                 />
             </template>
         </div>
