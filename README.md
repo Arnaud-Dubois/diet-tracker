@@ -32,17 +32,26 @@ Seed the database :
 ## Tinker commands to add new item
 <code>
 $food = new App\Models\Food;
-$food->name = 'Chocolat';
+$food->name = 'Pineapple';
 $food->calories = 36;
 $food->proteines = 1.8;
 $food->glucides = 22.1;
 $food->lipides = 0.1;
-$food->diet = ['Vegan','Keto'];
+$food->diet = ['vegan', 'gluten_free'];
+$food->image = "https://loremflickr.com/240/240/fruit?lock=1";
+$food->description = "This is a nice fruit!";
 $food->save();
 </code>
 
-## Todo
-- Add a seeder or a form to add new items
-- Add image to FoodModel
-- Add diet enum to FoodModel
-- Add info longtext to FoodModel
+## Clear db records in Tinker
+``App\Models\Food::truncate();``
+
+## Changelog
+- Added image and description to FoodModel
+- Improved seeder with better fruits data
+- Changed styling to a full tailwind solution for more homogenization
+- Improved pagination UI
+- Added a 'clear' button on search bar
+- Added food statistiques unit
+- Added delete method for a better use
+- Improved searching with more fields
