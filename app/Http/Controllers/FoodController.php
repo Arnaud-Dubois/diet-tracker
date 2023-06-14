@@ -4,10 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\Food;
 use Illuminate\Support\Facades\Request;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Inertia\Inertia;
 use Inertia\Response;
 
-const PAGINATION_NUMBER = 3;
+const PAGINATION_NUMBER = 4;
 
 class FoodController extends Controller
 {
@@ -20,7 +21,11 @@ class FoodController extends Controller
         return Inertia::render('Food/Index', [
             'foods' => Food::query()
                 ->when(Request::input('search'), function($query, $search) {
-                    $query->where('name','LIKE','%'.$search.'%');
+                    $query->where('name','LIKE','%'.$search.'%')
+                    ->orWhere('calories','LIKE','%'.$search.'%')
+                    ->orWhere('proteines','LIKE','%'.$search.'%')
+                    ->orWhere('glucides','LIKE','%'.$search.'%')
+                    ->orWhere('lipides','LIKE','%'.$search.'%');
                 })->paginate(PAGINATION_NUMBER)
                 ->onEachSide(1)
                 ->withQueryString(),
@@ -74,8 +79,15 @@ class FoodController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Food $food)
+    public function destroy($id)
+    // TODO: Handle Inertia Success and Error Response
     {
-        //
+        try {
+            $food = Food::findOrFail($id);
+            $food->delete();
+            return redirect()->back()->with('success', 'The food has been removed');
+        } catch(ModelNotFoundException $exception) {
+            return redirect()->back()->with('error', 'The food does not exist');
+        }
     }
 }

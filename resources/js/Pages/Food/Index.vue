@@ -40,6 +40,9 @@ function clearSearchValue() {
     <Head title="Food list" />
 
     <AuthenticatedLayout>
+        <template #header>
+            <h2 class="font-semibold text-xl text-gray-800 leading-tight">Food list</h2>
+        </template>
         <div class="max-w-xl mx-auto p-4 sm:p-6 lg:p-8">
             <div class="flex gap-2 py-4 px-2">
                 <TheSearchBar

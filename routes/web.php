@@ -38,6 +38,7 @@ Route::middleware('auth')->group(function () {
     /* Food */
     Route::get('/food', [FoodController::class, 'index'])->name('food.index');
     Route::get('/food{id}', [FoodController::class, 'show'])->name('food.show');
+    Route::delete('/food/{id}', [FoodController::class, 'destroy'])->name('food.destroy');
 });
 
 require __DIR__.'/auth.php';

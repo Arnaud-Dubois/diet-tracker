@@ -1,8 +1,9 @@
 <script setup lang="js">
-import FoodItemHeader from './FoodItemHeader.vue'
-import { Link } from '@inertiajs/vue3';
+import FoodItemHeader from './FoodItemHeader.vue';
+import SecondaryButton from '@/Components/SecondaryButton.vue';
+import { Link, router } from '@inertiajs/vue3';
 
-defineProps({
+const props = defineProps({
     title: {
         type: String,
         required: true
@@ -20,10 +21,18 @@ defineProps({
         required: false
     }
 });
+
+function removeItem() {
+    const id = props.foodId
+    if(confirm('Remove this food ?')) {
+        router.delete(`/food/${id}`)
+    }
+}
+
 </script>
 
 <template>
-    <li class="food-list-item p-2 border-b-2 transition ease-in-out duration-100 hover:bg-stone-200">
+    <li class="food-list-item relative p-2 border-b-2 transition ease-in-out duration-100 hover:bg-stone-200">
         <Link :href="route('food.show', { id: foodId })">
             <FoodItemHeader
                 :src="src"
@@ -31,5 +40,11 @@ defineProps({
                 :diet="diet"
             />
         </Link>
+        <SecondaryButton
+            @click="removeItem"
+            class="absolute top-0 right-0 m-2"
+        >
+            Remove
+        </SecondaryButton>
     </li>
 </template>
